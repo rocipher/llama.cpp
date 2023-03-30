@@ -350,10 +350,11 @@ static void munmap_file(void * addr, size_t length) {
 static bool report_bad_magic(const char *path) {
     fprintf(stderr,
             "%s: invalid model file (bad magic)\n"
-            "you most likely need to regenerate your ggml files\n"
-            "the benefit is you'll get 10-100x faster load times\n"
-            "see https://github.com/ggerganov/llama.cpp/issues/91\n"
-            "use convert-pth-to-ggml.py on your llama model files\n",
+            "\tyou most likely need to regenerate your ggml files\n"
+            "\tthe benefit is you'll get 10-100x faster load times\n"
+            "\tsee https://github.com/ggerganov/llama.cpp/issues/91\n"
+            "\tuse convert-pth-to-ggml.py to regenerate from original pth\n"
+            "\tuse migrate-ggml-2023-03-30-pr613.py if you deleted originals\n",
             path);
     return false;
 }
